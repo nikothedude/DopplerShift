@@ -1,5 +1,0 @@
-Taur legs dont generate any overlays
-Nagas crop a few pixels lower
-Naga and naga striped merged
-
-Nagas make crawling noises when they move
