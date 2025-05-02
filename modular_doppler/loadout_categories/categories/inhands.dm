@@ -37,17 +37,13 @@
 
 /datum/loadout_item/inhand/saddle
 	name = "Riding Saddle"
-	item_path = /obj/item/riding_saddle
+	item_path = /obj/item/riding_saddle/leather
 
 /datum/loadout_item/inhand/saddle_blue
 	name = "Riding Saddle (Blue)"
-	item_path = /obj/item/riding_saddle/blue
-
-/datum/loadout_item/inhand/saddle_blue
-	name = "Riding Saddle (Blue)"
-	item_path = /obj/item/riding_saddle/blue
+	item_path = /obj/item/riding_saddle/leather/blue
 
 // not backpack cat, because backpack cat places it on your back ignoring checks
 /datum/loadout_item/inhand/saddlebags
 	name = "Saddlebags"
-	item_path = obj/item/storage/backpack/saddlebags
+	item_path = /obj/item/storage/backpack/saddlebags
