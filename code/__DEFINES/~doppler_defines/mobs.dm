@@ -6,3 +6,4 @@
 
 #define BODYPART_ICON_SNAIL 'modular_doppler/modular_species/species_types/snails/icons/bodyparts/snail_bodyparts.dmi'
 #define BODYPART_ICON_ROUNDSTARTSLIME 'modular_doppler/modular_species/species_types/slimes/icons/bodyparts.dmi'
+#define BODYPART_ICON_TAUR 'modular_doppler/taurs/icons/taur_invisible_legs.dmi'

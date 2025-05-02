@@ -187,3 +187,12 @@ export const has_fluff: FeatureToggle = {
   `,
   component: CheckboxInput,
 };
+
+export const has_taur: FeatureToggle = {
+  name: 'Add Part: Taur',
+  category: 'GAMEPLAY',
+  description: `
+    When toggled adds taur parts to your character.
+   `,
+  component: CheckboxInput,
+};

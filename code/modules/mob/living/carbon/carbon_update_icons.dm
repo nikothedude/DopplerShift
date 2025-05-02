@@ -296,6 +296,10 @@
 
 	var/mutable_appearance/damage_overlay
 	for(var/obj/item/bodypart/iter_part as anything in bodyparts)
+		// DOPPLER EDIT BEGIN - Don't handle abstract limbs (Taurs, etc.)
+		if(!iter_part.show_icon)
+			continue
+		// DOPPLER EDIT END
 		if(!iter_part.dmg_overlay_type)
 			continue
 		if(isnull(damage_overlay) && (iter_part.brutestate || iter_part.burnstate))
@@ -471,6 +475,11 @@
 	var/list/needs_update = list()
 	var/limb_count_update = 0
 	for(var/obj/item/bodypart/limb as anything in bodyparts)
+		// DOPPLER EDIT BEGIN - Don't handle abstract limbs (Taurs, etc.)
+		if(!limb.show_icon)
+			continue
+		// NIKO NOTE --- DO NOT MERGE IF THIS IS STILL HERE --- TEST THIS!!! You removed the get_icon_key overrides in favor of this. MAKE SURE IT WORKS
+		// DOPPLER EDIT END
 		limb.update_limb(is_creating = update_limb_data) //Update limb actually doesn't do much, get_limb_icon is the cpu eater.
 
 		var/old_key = icon_render_keys?[limb.body_zone] //Checks the mob's icon render key list for the bodypart

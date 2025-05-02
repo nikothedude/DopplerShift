@@ -108,12 +108,27 @@
 
 /// DOPPLER SHIFT ADDITION BEGIN
 // This is where our custom bodyshapes are going to go.  Keeping these in one place is critical for readability.
+
+///The limb fits a taur body
+/// This one is abstract; merely a indicator of a taur body
+#define BODYSHAPE_TAUR (1<<7)
+#define BODYSHAPE_TAUR_SNAKE (1<<8)
+#define BODYSHAPE_TAUR_HOOF (1<<9)
+#define BODYSHAPE_TAUR_PAW (1<<10)
+#define BODYSHAPE_TAUR_ALL (BODYSHAPE_TAUR_SNAKE|BODYSHAPE_TAUR_HOOF|BODYSHAPE_TAUR_PAW)
+///The limb causes shoes to no longer be displayed, useful for taurs.
+// NIKO NOTE -- DO NOT MERGE IF THIS IS HERE -- This really seems wrong. Why a bodyshape?
+#define BODYSHAPE_HIDE_SHOES (1<<11)
+
 /// BREAKER: Numeric -> text for use in defines
 #define BODYSHAPE_HUMANOID_T "1"
 #define BODYSHAPE_MONKEY_T "2"
 #define BODYSHAPE_DIGITIGRADE_T "4"
 #define BODYSHAPE_SNOUTED_T "8"
-/// DOPPLER SHIFT ADDITIO NEND
+#define BODYSHAPE_TAUR_SNAKE_T "256"
+#define BODYSHAPE_TAUR_HOOF_T "512"
+#define BODYSHAPE_TAUR_PAW_T "1024"
+/// DOPPLER SHIFT ADDITION END
 
 #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
 #define BODYTYPE_CAN_BE_BIOSCRAMBLED(bodytype) (!(bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE))

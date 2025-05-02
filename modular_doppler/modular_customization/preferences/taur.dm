@@ -1,0 +1,151 @@
+// dna is a string
+/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
+	. = ..()
+	if(target.dna.features["taur"] && !(type in GLOB.species_blacklist_no_mutant))
+		if(target.dna.features["taur"] != /datum/sprite_accessory/taur/none::name && target.dna.features["taur"] != /datum/sprite_accessory/blank::name)
+			var/obj/item/organ/taur_body/body_to_use = /obj/item/organ/taur_body
+			var/datum/sprite_accessory/taur/accessory = SSaccessories.taur_list[target.dna.features["taur"]]
+			if (accessory)
+				body_to_use = accessory.organ_type
+			var/obj/item/organ/replacement  = SSwardrobe.provide_type(body_to_use)
+			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+			return .
+	var/obj/item/organ/old_part = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+	if(old_part)
+		old_part.Remove(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+		old_part.moveToNullspace()
+
+//core toggle
+/datum/preference/toggle/taur
+	savefile_key = "has_taur"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	priority = PREFERENCE_PRIORITY_DEFAULT
+
+/datum/preference/toggle/taur/apply_to_human(mob/living/carbon/human/target, value)
+	if(value == FALSE)
+		target.dna.features["taur"] = /datum/sprite_accessory/taur/none::name
+
+/datum/preference/toggle/taur/create_default_value()
+	return FALSE
+
+/datum/preference/toggle/taur/is_accessible(datum/preferences/preferences)
+	. = ..()
+	var/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(species in GLOB.species_blacklist_no_mutant)
+		return FALSE
+	return TRUE
+
+/datum/preference/choiced/taur_type
+	savefile_key = "taur_type"
+	main_feature_name = "Taur"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_CLOTHING
+	priority = PREFERENCE_PRIORITY_DEFAULT
+	should_generate_icons = TRUE
+	can_randomize = FALSE
+
+/datum/preference/choiced/taur_type/icon_for(value)
+	var/datum/sprite_accessory/taur/taur_acc = SSaccessories.taur_list[value]
+	var/icon/accessory_icon = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_ADJ_1", SOUTH)
+	var/icon/accessory_icon_2 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_ADJ_2", SOUTH)
+	accessory_icon_2.Blend(COLOR_RED, ICON_MULTIPLY)
+	var/icon/accessory_icon_3 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_ADJ_3", SOUTH)
+	accessory_icon_3.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
+	accessory_icon.Blend(accessory_icon, ICON_OVERLAY)
+	accessory_icon.Blend(accessory_icon_2, ICON_OVERLAY)
+	accessory_icon.Blend(accessory_icon_3, ICON_OVERLAY)
+	return accessory_icon
+
+/datum/preference/choiced/taur_type/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features["taur"] = value
+
+/datum/preference/choiced/taur_type/is_accessible(datum/preferences/preferences)
+	. = ..()
+	if (!.)
+		return FALSE
+
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(species.type in GLOB.species_blacklist_no_mutant)
+		return FALSE
+	var/has_taur = preferences.read_preference(/datum/preference/toggle/taur)
+	if(has_taur == TRUE)
+		return TRUE
+	return FALSE
+
+/datum/preference/choiced/taur_type/init_possible_values()
+	return assoc_to_keys_features(SSaccessories.taur_list)
+
+/datum/preference/choiced/taur_type/create_default_value()
+	return /datum/sprite_accessory/taur/none::name
+
+/// SSAccessories setup
+/datum/controller/subsystem/accessories
+	var/list/taur_list
+
+/datum/controller/subsystem/accessories/setup_lists()
+	. = ..()
+	taur_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/taur)["default_sprites"]
+
+/datum/bodypart_overlay/mutant/taur_body
+	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
+	feature_key = "taur"
+	feature_key_sprite = "taur"
+
+/datum/bodypart_overlay/mutant/taur_body/can_draw_on_bodypart(mob/living/carbon/human/human)
+	. = ..()
+
+	if (!.)
+		return .
+
+	var/obj/item/organ/taur_body/body = human.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+	if (istype(body))
+		if (body.hide_self)
+			return FALSE
+
+	var/obj/item/clothing/suit/worn_suit = human.wear_suit
+	if (istype(worn_suit))
+		if((worn_suit.flags_inv & HIDETAIL) && !worn_suit.gets_cropped_on_taurs)
+			return TRUE
+
+		if (worn_suit.flags_inv & HIDETAUR)
+			for(var/shape in worn_suit.supported_bodyshapes)
+				if(body.external_bodyshapes & shape)
+					return TRUE
+
+/datum/bodypart_overlay/mutant/taur_body/get_global_feature_list()
+	return SSaccessories.taur_list
+
+/datum/bodypart_overlay/mutant/taur/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+	if(limb == null)
+		return ..()
+	if(limb.owner == null)
+		return ..()
+	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
+		overlay.color = limb.owner.dna.features["taur_color_1"]
+		return overlay
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
+		overlay.color = limb.owner.dna.features["taur_color_1"]
+		return overlay
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND))
+		overlay.color = limb.owner.dna.features["taur_color_1"]
+		return overlay
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_2))
+		overlay.color = limb.owner.dna.features["taur_color_2"]
+		return overlay
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
+		overlay.color = limb.owner.dna.features["taur_color_2"]
+		return overlay
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_2))
+		overlay.color = limb.owner.dna.features["taur_color_2"]
+		return overlay
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_3))
+		overlay.color = limb.owner.dna.features["taur_color_3"]
+		return overlay
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
+		overlay.color = limb.owner.dna.features["taur_color_3"]
+		return overlay
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_3))
+		overlay.color = limb.owner.dna.features["taur_color_3"]
+		return overlay
+	return ..()
