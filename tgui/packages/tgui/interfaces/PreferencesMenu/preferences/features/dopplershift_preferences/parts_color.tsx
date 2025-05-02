@@ -196,3 +196,8 @@ export const has_taur: FeatureToggle = {
    `,
   component: CheckboxInput,
 };
+
+export const taur_color: Feature<string[]> = {
+  name: 'Taur Color',
+  component: FeatureTriColorInput,
+};

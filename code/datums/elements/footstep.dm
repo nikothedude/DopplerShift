@@ -50,6 +50,10 @@
 			footstep_sounds = 'sound/effects/tank_treads.ogg'
 			RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(play_simplestep_machine))
 			return
+		// DOPPLER SHIFT EDIT START
+		if(FOOTSTEP_MOB_SNAKE)
+			footstep_sounds = 'sound/effects/footstep/crawl1.ogg'
+		// DOPPLER SHIFT END
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(play_simplestep))
 	steps_for_living[target] = 0
 

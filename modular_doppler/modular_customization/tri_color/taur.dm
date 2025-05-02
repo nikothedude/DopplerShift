@@ -1,7 +1,7 @@
 // Gotta add to the selector
 /datum/preference/choiced/taur_type/compile_constant_data()
 	var/list/data = ..()
-	//data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/taur_color::savefile_key
+	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/taur_color::savefile_key
 	return data
 
 /datum/preference/tri_color/taur_color

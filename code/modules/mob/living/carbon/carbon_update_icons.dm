@@ -478,7 +478,6 @@
 		// DOPPLER EDIT BEGIN - Don't handle abstract limbs (Taurs, etc.)
 		if(!limb.show_icon)
 			continue
-		// NIKO NOTE --- DO NOT MERGE IF THIS IS STILL HERE --- TEST THIS!!! You removed the get_icon_key overrides in favor of this. MAKE SURE IT WORKS
 		// DOPPLER EDIT END
 		limb.update_limb(is_creating = update_limb_data) //Update limb actually doesn't do much, get_limb_icon is the cpu eater.
 

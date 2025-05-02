@@ -933,9 +933,14 @@ generate/load female uniform sprites matching all previously decided variables
 	/// DOPPLER SHIFT ADDITION END
 	/// DOPPLER SHIFT ADDITION START - Taur-friendly uniforms and suits
 	var/shift_pixel_x = 0
-	if (wearer.bodyshape & BODYSHAPE_TAUR_ALL)
+	if (istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR)
 		if (!using_taur_variant)
-			building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors)
+			if (gets_cropped_on_taurs)
+				var/cropping_state = DEFAULT_TAUR_CLIPPING_MASK
+				if (ishuman(humie))
+					var/obj/item/organ/taur_body/taur = humie.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+					cropping_state = (taur ? taur.clothing_cropping_state : DEFAULT_TAUR_CLIPPING_MASK)
+				building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors, cropping_state)
 		else
 			shift_pixel_x = -16 // it doesnt look right otherwise
 	/// DOPPLER SHIFT ADDITION END

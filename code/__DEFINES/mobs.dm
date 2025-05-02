@@ -112,6 +112,7 @@
 ///The limb fits a taur body
 /// This one is abstract; merely a indicator of a taur body
 #define BODYSHAPE_TAUR (1<<7)
+// Specific taur types
 #define BODYSHAPE_TAUR_SNAKE (1<<8)
 #define BODYSHAPE_TAUR_HOOF (1<<9)
 #define BODYSHAPE_TAUR_PAW (1<<10)
@@ -757,6 +758,10 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 #define BRA_SOCKS_LAYER 27.02
 /// Underwear and undershirt
 #define UNDERWEAR_UNDERSHIRT 27.01
+/// This layer is used for things that shouldn't be over clothes, but should be over mutations
+#define BODY_FRONT_UNDER_CLOTHES_LAYER 27.009
+#define BODY_FRONT_UNDER_CLOTHES_LAYER_2 27.008
+#define BODY_FRONT_UNDER_CLOTHES_LAYER_3 27.007
 /// DOPPLER SHIFT ADDITION END
 /// Jumpsuit clothing layer
 #define UNIFORM_LAYER 27
@@ -892,6 +897,12 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define EXTERNAL_BEHIND_3 (1 << 8)
 //Hand markings
 #define EXTERNAL_HAND (1 << 9)
+
+//Misc
+#define EXTERNAL_BODY_FRONT_UNDER_CLOTHES (1 << 10)
+#define EXTERNAL_BODY_FRONT_UNDER_CLOTHES_2 (1 << 11)
+#define EXTERNAL_BODY_FRONT_UNDER_CLOTHES_3 (1 << 12)
+
 /// DOPPLER SHIFT ADDITION END
 /// Draws organ on all EXTERNAL layers
 #define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
