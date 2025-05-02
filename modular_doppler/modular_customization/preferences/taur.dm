@@ -1,3 +1,12 @@
+/datum/species/get_features()
+	var/list/features = ..()
+
+	features += /datum/preference/choiced/taur_type
+
+	GLOB.features_by_species[type] = features
+
+	return features
+
 // dna is a string
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
 	. = ..()
@@ -37,7 +46,7 @@
 	return TRUE
 
 /datum/preference/choiced/taur_type
-	savefile_key = "taur_type"
+	savefile_key = "feature_taur"
 	main_feature_name = "Taur"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING

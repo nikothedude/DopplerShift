@@ -5,9 +5,12 @@
 	external_bodyshapes = BODYSHAPE_TAUR | BODYSHAPE_HIDE_SHOES
 	use_mob_sprite_as_obj_sprite = TRUE
 
-	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
 	preference = "feature_taur"
+
+	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
 	bodypart_overlay = /datum/bodypart_overlay/mutant/taur_body
+
+	var/abstract_type = /obj/item/organ/taur_body
 
 	/// If not null, the left leg limb we add to our mob will have this name.
 	var/left_leg_name = "front legs"
@@ -45,6 +48,12 @@
 
 	/// When considering how much to offset our rider, we multiply size scaling against this.
 	var/riding_offset_scaling_mult = 0.8
+
+/obj/item/organ/taur_body/Initialize(mapload)
+	if (abstract_type == type)
+		return INITIALIZE_HINT_QDEL
+
+	return ..()
 
 // This list is not exhaustive. If taur mechanics get large, please move any code into taur_mechanics.
 // Simple taurs below

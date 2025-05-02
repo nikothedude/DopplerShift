@@ -21,8 +21,6 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
  * * icon_to_process (/icon) - The icon we want to run through the process of masking off the bottom part of.
  * * icon_state - The icon_state of the icon we're being given, to obtain a proper icon object.
  * * cropping_state - The icon state used for the cropping mask.
- *
- * Add a `taur_type` here if you ever want to add different cropping options, for whatever reason.
  */
 /proc/generate_taur_clothing(index, icon/icon_to_process, icon_state, cropping_state)
 	var/icon/taur_clothing_icon = icon("icon" = icon_to_process, "icon_state" = icon_state)
