@@ -40,6 +40,7 @@
 /datum/sprite_accessory/taur/canine
 	name = "Canine"
 	icon_state = "canine"
+	organ_type = /obj/item/organ/taur_body/quadruped/paw
 
 /datum/sprite_accessory/taur/feline
 	name = "Feline"
