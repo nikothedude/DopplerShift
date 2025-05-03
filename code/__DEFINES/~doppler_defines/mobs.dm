@@ -18,3 +18,4 @@ GLOBAL_LIST_INIT(digi_leg_types, list(
 //	DIGI_HOOF,
 //	DIGI_TALON,
 	DIGI_BUG,
+))
