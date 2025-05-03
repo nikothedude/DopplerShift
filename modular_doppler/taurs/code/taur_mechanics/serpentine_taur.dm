@@ -36,14 +36,7 @@
 	if (shoe && !HAS_TRAIT(shoe, TRAIT_NODROP))
 		shoe.forceMove(get_turf(organ_owner))
 
-	// NIKO NOTE ---- DO NOT MERGE IF THIS IS PRESENT ---- Ask people if we want this pref
-	/*var/use_hardened_soles = FALSE
-	var/datum/preferences/prefs = organ_owner.client?.prefs
-	if (prefs)
-		use_hardened_soles = !(prefs.read_preference(/datum/preference/toggle/naga_soles))
-
-	if (use_hardened_soles)
-		add_hardened_soles(organ_owner)*/
+	add_hardened_soles(organ_owner)
 
 /// Adds TRAIT_HARD_SOLES to our owner.
 /obj/item/organ/taur_body/serpentine/proc/add_hardened_soles(mob/living/carbon/organ_owner = owner)
