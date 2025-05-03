@@ -50,10 +50,10 @@
 	var/riding_offset_scaling_mult = 0.8
 
 /obj/item/organ/taur_body/Initialize(mapload)
+	. = ..()
+
 	if (abstract_type == type)
 		return INITIALIZE_HINT_QDEL
-
-	return ..()
 
 // This list is not exhaustive. If taur mechanics get large, please move any code into taur_mechanics.
 // Simple taurs below

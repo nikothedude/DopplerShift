@@ -61,9 +61,11 @@
 	accessory_icon_2.Blend(COLOR_RED, ICON_MULTIPLY)
 	var/icon/accessory_icon_3 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_ADJ_3", SOUTH)
 	accessory_icon_3.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
-	accessory_icon.Blend(accessory_icon, ICON_OVERLAY)
+	//accessory_icon.Blend(accessory_icon, ICON_OVERLAY)
 	accessory_icon.Blend(accessory_icon_2, ICON_OVERLAY)
 	accessory_icon.Blend(accessory_icon_3, ICON_OVERLAY)
+	accessory_icon.Scale(32, 32) // otherwise, the taur sprites dont load in the pref menu at all
+
 	return accessory_icon
 
 /datum/preference/choiced/taur_type/apply_to_human(mob/living/carbon/human/target, value)
