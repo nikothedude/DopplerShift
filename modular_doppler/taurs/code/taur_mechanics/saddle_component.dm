@@ -50,7 +50,9 @@
 
 	if (!wearer_has_requisite_organ(signal_source))
 		var/obj/item/item_parent = parent
-		item_parent.forceMove(get_turf(item_parent)) // force unequip
+		var/atom/move_target = get_turf(signal_source)
+		signal_source.temporarilyRemoveItemFromInventory(item_parent, TRUE, newloc = move_target)
+		item_parent.forceMove(move_target) // force unequip
 
 /// Signal handler for COMSIG_HUMAN_SADDLE_RIDE_ATTEMPT. Returns saddle_flags into the signal bitfield.
 /datum/component/carbon_saddle/proc/wearer_ridden(mob/living/carbon/human/wearer, mob/living/carbon/rider)

@@ -56,6 +56,7 @@
 
 /datum/preference/choiced/taur_type/icon_for(value)
 	var/datum/sprite_accessory/taur/taur_acc = SSaccessories.taur_list[value]
+
 	var/icon/accessory_icon = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_ADJ", SOUTH)
 	var/icon/accessory_icon_2 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_ADJ_2", SOUTH)
 	accessory_icon_2.Blend(COLOR_RED, ICON_MULTIPLY)

@@ -2,7 +2,13 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 
 /obj/item
 	/// Does this object get cropped when worn by a taur on their suit or uniform slot?
-	var/gets_cropped_on_taurs = TRUE // Primitive values such as 1 (true) have minimal memory impact when on a basetype, as long as the value doesnt change.
+	var/gets_cropped_on_taurs = FALSE // Primitive values such as 1 (true) have minimal memory impact when on a basetype, as long as the value doesnt change.
+
+/obj/item/clothing/suit
+	gets_cropped_on_taurs = TRUE
+
+/obj/item/clothing/under
+	gets_cropped_on_taurs = TRUE
 
 /obj/item/clothing/under/color/jumpskirt
 	gets_cropped_on_taurs = FALSE // its a skirt
