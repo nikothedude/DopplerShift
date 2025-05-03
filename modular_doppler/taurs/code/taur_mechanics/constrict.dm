@@ -18,7 +18,7 @@
 	/// The tail we use to constrict mobs with. Nullable, if inactive.
 	var/obj/structure/serpentine_tail/tail
 	/// The base time it takes for us to constrict a mob.
-	var/base_coil_delay = 2.2 SECONDS
+	var/base_coil_delay = 1.2 SECONDS
 
 /datum/action/innate/constrict/Destroy()
 	qdel(tail) // we already listen for COMSIG_QDELETING on our tail, so it already sets it to null via the signal
@@ -153,7 +153,7 @@
 	/// Are we currently crushing constricted?
 	var/currently_crushing = FALSE
 	/// The amount of brute damage we will do per second to constricted if we are crushing.
-	var/brute_per_second = 2
+	var/brute_per_second = 3
 	/// How likely are we, per second, to cause a blunt wound on constricted if we are crushing?
 	var/chance_to_cause_wound = 5
 
