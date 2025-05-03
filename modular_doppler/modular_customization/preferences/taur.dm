@@ -124,7 +124,7 @@
 		if (worn_suit.flags_inv & HIDETAURIFCOMPATIBLE)
 			for(var/shape in worn_suit.supported_bodyshapes)
 				if(body.external_bodyshapes & shape)
-					return TRUE
+					return FALSE
 
 /datum/bodypart_overlay/mutant/taur_body/get_global_feature_list()
 	return SSaccessories.taur_list
