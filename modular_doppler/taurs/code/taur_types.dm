@@ -5,11 +5,6 @@
 	/// The taur organ we will insert.
 	var/obj/item/organ/organ_type = /obj/item/organ/taur_body/quadruped // quadruped by default, dont forget to override if you make another bodytype
 
-/datum/sprite_accessory/taur/none
-	name = SPRITE_ACCESSORY_NONE
-	center = FALSE
-	icon_state = "none"
-
 /datum/sprite_accessory/taur/deer
 	name = "Deer"
 	icon_state = "deer"
