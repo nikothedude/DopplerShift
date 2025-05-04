@@ -20,6 +20,7 @@
 	bodyshape = parent_type::bodyshape | BODYSHAPE_TAUR
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	show_icon = FALSE
+	should_draw_greyscale = TRUE
 
 /obj/item/bodypart/leg/left/robot/android/taur
 	icon_greyscale = BODYPART_ICON_TAUR
@@ -28,3 +29,4 @@
 	bodyshape = parent_type::bodyshape | BODYSHAPE_TAUR
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	show_icon = FALSE
+	should_draw_greyscale = TRUE
