@@ -117,8 +117,7 @@
 #define BODYSHAPE_TAUR_HOOF (1<<9)
 #define BODYSHAPE_TAUR_PAW (1<<10)
 #define BODYSHAPE_TAUR_ALL (BODYSHAPE_TAUR_SNAKE|BODYSHAPE_TAUR_HOOF|BODYSHAPE_TAUR_PAW)
-///The limb causes shoes to no longer be displayed, useful for taurs.
-// NIKO NOTE -- DO NOT MERGE IF THIS IS HERE -- This really seems wrong. Why a bodyshape?
+/// A bit nasty, but I can't think of another way to do this. Owners of this limb will not render shoes.
 #define BODYSHAPE_HIDE_SHOES (1<<11)
 
 /// BREAKER: Numeric -> text for use in defines
