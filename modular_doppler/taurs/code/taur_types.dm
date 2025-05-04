@@ -7,9 +7,7 @@
 
 /datum/sprite_accessory/taur/none
 	name = SPRITE_ACCESSORY_NONE
-	dimension_x = 32
 	center = FALSE
-	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
 	icon_state = "none"
 
 /datum/sprite_accessory/taur/deer
