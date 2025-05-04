@@ -26,6 +26,24 @@
 	)
 	flags_inv = parent_type::flags_inv | HIDETAURIFCOMPATIBLE
 
+/obj/item/clothing/suit/space/syndicate/orange
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
+		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
+		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
+	)
+	flags_inv = parent_type::flags_inv | HIDETAURIFCOMPATIBLE
+
+/obj/item/clothing/suit/space/syndicate/black/red
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
+		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
+		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
+	)
+	flags_inv = parent_type::flags_inv | HIDETAURIFCOMPATIBLE
+
 /obj/item/clothing/suit/space/eva/plasmaman
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
