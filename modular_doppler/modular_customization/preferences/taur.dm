@@ -56,18 +56,25 @@
 
 /datum/preference/choiced/taur_type/icon_for(value)
 	var/datum/sprite_accessory/taur/taur_acc = SSaccessories.taur_list[value]
+	// TO THOSE RESEARCHING THIS CODE LATER! This initial blank sprite is ESSENTIAL. It allows to sprite to generate even if the initial ADJ sprite is broken or nonexistant.
+	var/icon/final_icon = icon('modular_doppler/taurs/icons/taur.dmi', "none", SOUTH)
+	var/icon/accessory_icon = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]", SOUTH)
+	var/icon/accessory_icon_2 = null
+	if (icon_exists(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_2"))
+		accessory_icon_2 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_2", SOUTH)
+		accessory_icon_2.Blend(COLOR_RED, ICON_MULTIPLY)
+	var/icon/accessory_icon_3 = null
+	if (icon_exists(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_3"))
+		accessory_icon_3 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_3", SOUTH)
+		accessory_icon_3.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
+	final_icon.Blend(accessory_icon, ICON_OVERLAY)
+	if (istype(accessory_icon_2))
+		final_icon.Blend(accessory_icon_2, ICON_OVERLAY)
+	if (istype(accessory_icon_3))
+		final_icon.Blend(accessory_icon_3, ICON_OVERLAY)
+	final_icon.Scale(32, 32) // otherwise, the taur sprites dont load in the pref menu at all
 
-	var/icon/accessory_icon = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_ADJ", SOUTH)
-	var/icon/accessory_icon_2 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_ADJ_2", SOUTH)
-	accessory_icon_2.Blend(COLOR_RED, ICON_MULTIPLY)
-	var/icon/accessory_icon_3 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_ADJ_3", SOUTH)
-	accessory_icon_3.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
-	//accessory_icon.Blend(accessory_icon, ICON_OVERLAY)
-	accessory_icon.Blend(accessory_icon_2, ICON_OVERLAY)
-	accessory_icon.Blend(accessory_icon_3, ICON_OVERLAY)
-	accessory_icon.Scale(32, 32) // otherwise, the taur sprites dont load in the pref menu at all
-
-	return accessory_icon
+	return final_icon
 
 /datum/preference/choiced/taur_type/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["taur"] = value

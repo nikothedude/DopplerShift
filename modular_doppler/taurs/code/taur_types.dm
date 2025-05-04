@@ -4,6 +4,8 @@
 	center = TRUE
 	/// The taur organ we will insert.
 	var/obj/item/organ/organ_type = /obj/item/organ/taur_body/quadruped // quadruped by default, dont forget to override if you make another bodytype
+	/// The primary layer of our body - most bodies use ADJ, but some use FRONT. Used for prefs rendering.
+	var/primary_layer = "ADJ"
 
 /datum/sprite_accessory/taur/deer
 	name = "Deer"
@@ -32,6 +34,7 @@
 	name = "Tentacle"
 	icon_state = "tentaclealt"
 	organ_type = /obj/item/organ/taur_body/tentacle
+	primary_layer = "FRONT"
 
 /datum/sprite_accessory/taur/canine
 	name = "Canine"
