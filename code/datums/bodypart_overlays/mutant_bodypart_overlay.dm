@@ -33,7 +33,7 @@
 		var/feature_name = receiver.dna.features[feature_key]
 		if (isnull(feature_name))
 			feature_name = receiver.dna.species.mutant_organs[parent.type]
-		set_appearance_from_name(feature_name)
+		set_appearance_from_name(feature_name, receiver, parent)
 		imprint_on_next_insertion = FALSE
 
 /datum/bodypart_overlay/mutant/get_overlay(layer, obj/item/bodypart/limb)
@@ -101,8 +101,8 @@
 	cache_key = jointext(generate_icon_cache(), "_")
 
 ///In a lot of cases, appearances are stored in DNA as the Name, instead of the path. Use set_appearance instead of possible
-/datum/bodypart_overlay/mutant/proc/set_appearance_from_name(accessory_name)
-	sprite_datum = fetch_sprite_datum_from_name(accessory_name)
+/datum/bodypart_overlay/mutant/proc/set_appearance_from_name(accessory_name, mob/living/carbon/receiver, obj/item/organ/parent)
+	sprite_datum = fetch_sprite_datum_from_name(accessory_name, receiver, parent)
 	cache_key = jointext(generate_icon_cache(), "_")
 
 ///Generate a unique key based on our sprites. So that if we've aleady drawn these sprites, they can be found in the cache and wont have to be drawn again (blessing and curse, but mostly curse)
@@ -155,7 +155,7 @@
 	return fetch_sprite_datum_from_name(initial(accessory_path.name))
 
 ///Get the singleton from the sprite name
-/datum/bodypart_overlay/mutant/proc/fetch_sprite_datum_from_name(accessory_name)
+/datum/bodypart_overlay/mutant/proc/fetch_sprite_datum_from_name(accessory_name, mob/living/carbon/receiver, obj/item/organ/parent)
 	var/list/feature_list = get_global_feature_list()
 	var/found = feature_list[accessory_name]
 	if(found)
@@ -166,7 +166,11 @@
 	else if(accessory_name)
 		CRASH("External organ [type] couldn't find sprite accessory [accessory_name]!")
 	else
-		CRASH("External organ [type] had fetch_sprite_datum called with a null accessory name!")
+		var/iter_string = ""
+		for (var/obj/item/iter_item in receiver.dna.species.mutant_organs)
+			iter_string += "[iter_item.type], "
+		stack_trace(iter_string)
+		CRASH("External organ [type] had fetch_sprite_datum called with a null accessory name! DEBUG INFO: Feature name: [receiver.dna.features[feature_key]] Mutant feature name: [receiver.dna.species.mutant_organs[parent.type]]")
 
 ///From dye sprays. Set the dye_color (draw_color override) of this organ to a new value.
 /datum/bodypart_overlay/mutant/proc/set_dye_color(new_color, obj/item/organ/organ)
