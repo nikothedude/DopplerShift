@@ -27,10 +27,13 @@
 	icon_state = "naga"
 	organ_type = /obj/item/organ/taur_body/serpentine
 
+/datum/sprite_accessory/taur/naga/striped
+	name = "Naga, Striped"
+	icon_state = "naga_striped"
+
 /datum/sprite_accessory/taur/naga/rattle
 	name = "Naga, Rattle"
 	icon_state = "nagarattle"
-	organ_type = /obj/item/organ/taur_body/serpentine
 
 /datum/sprite_accessory/taur/tentacle
 	name = "Tentacle"
