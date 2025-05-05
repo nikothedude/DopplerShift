@@ -18,36 +18,40 @@
 
 
 /obj/item/clothing/suit/space/eva
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
+		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
 	flags_inv = parent_type::flags_inv | HIDETAURIFCOMPATIBLE
 
 /obj/item/clothing/suit/space/syndicate/orange
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
+		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
 	flags_inv = parent_type::flags_inv | HIDETAURIFCOMPATIBLE
 
 /obj/item/clothing/suit/space/syndicate/black/red
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
+		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
 	flags_inv = parent_type::flags_inv | HIDETAURIFCOMPATIBLE
 
 /obj/item/clothing/suit/space/eva/plasmaman
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
+		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
@@ -55,9 +59,10 @@
 
 
 /obj/item/clothing/suit/space/syndicate/contract
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
+		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
@@ -70,19 +75,6 @@
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 	)
 	flags_inv = HIDETAURIFCOMPATIBLE
-
-/obj/item/clothing/suit/hooded/explorer
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/utility.dmi',
-		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
-		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
-	)
-	flags_inv = HIDETAURIFCOMPATIBLE
-
-/obj/item/clothing/suit/hooded/explorer/syndicate
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
-	bodyshape_icon_files = list(BODYSHAPE_HUMANOID = 'icons/obj/clothing/suits/utility.dmi')
 
 /obj/item/clothing/suit/hooded/berserker
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
