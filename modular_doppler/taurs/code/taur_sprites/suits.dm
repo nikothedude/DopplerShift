@@ -21,7 +21,7 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
-		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
+		BODYSHAPE_DIGITIGRADE = 'modular_doppler/modular_cosmetics/icons/mob/suit/suit_digi.dmi',
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
@@ -31,7 +31,7 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
-		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
+		BODYSHAPE_DIGITIGRADE = 'modular_doppler/modular_cosmetics/icons/mob/suit/suit_digi.dmi',
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
@@ -41,7 +41,7 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
-		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
+		BODYSHAPE_DIGITIGRADE = 'modular_doppler/modular_cosmetics/icons/mob/suit/suit_digi.dmi',
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
@@ -51,7 +51,7 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
-		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
+		BODYSHAPE_DIGITIGRADE = 'modular_doppler/modular_cosmetics/icons/mob/suit/suit_digi.dmi',
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
@@ -62,7 +62,7 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
-		BODYSHAPE_DIGITIGRADE = DIGITIGRADE_SUIT_FILE,
+		BODYSHAPE_DIGITIGRADE = 'modular_doppler/modular_cosmetics/icons/mob/suit/suit_digi.dmi',
 		BODYSHAPE_TAUR_SNAKE_T = TAUR_SNAKE_SUIT_FILE,
 		BODYSHAPE_TAUR_PAW_T = TAUR_PAW_SUIT_FILE
 	)
