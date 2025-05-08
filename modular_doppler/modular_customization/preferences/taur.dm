@@ -57,22 +57,22 @@
 /datum/preference/choiced/taur_type/icon_for(value)
 	var/datum/sprite_accessory/taur/taur_acc = SSaccessories.taur_list[value]
 	// TO THOSE RESEARCHING THIS CODE LATER! This initial blank sprite is ESSENTIAL. It allows to sprite to generate even if the initial ADJ sprite is broken or nonexistant.
-	var/icon/final_icon = icon('modular_doppler/taurs/icons/taur.dmi', "none", SOUTH)
-	var/icon/accessory_icon = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]", SOUTH)
-	var/icon/accessory_icon_2 = null
+	var/datum/universal_icon/final_icon = uni_icon('modular_doppler/taurs/icons/taur.dmi', "m_taur_none_ADJ", SOUTH)
+	var/datum/universal_icon/accessory_icon = uni_icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]", SOUTH)
+	var/datum/universal_icon/accessory_icon_2 = null
 	if (icon_exists(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_2"))
-		accessory_icon_2 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_2", SOUTH)
-		accessory_icon_2.Blend(COLOR_RED, ICON_MULTIPLY)
-	var/icon/accessory_icon_3 = null
+		accessory_icon_2 = uni_icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_2", SOUTH)
+		accessory_icon_2.blend_color(COLOR_RED, ICON_MULTIPLY)
+	var/datum/universal_icon/accessory_icon_3 = null
 	if (icon_exists(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_3"))
-		accessory_icon_3 = icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_3", SOUTH)
-		accessory_icon_3.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
-	final_icon.Blend(accessory_icon, ICON_OVERLAY)
+		accessory_icon_3 = uni_icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]_3", SOUTH)
+		accessory_icon_3.blend_color(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
+	final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 	if (istype(accessory_icon_2))
-		final_icon.Blend(accessory_icon_2, ICON_OVERLAY)
+		final_icon.blend_icon(accessory_icon_2, ICON_OVERLAY)
 	if (istype(accessory_icon_3))
-		final_icon.Blend(accessory_icon_3, ICON_OVERLAY)
-	final_icon.Scale(32, 32) // otherwise, the taur sprites dont load in the pref menu at all
+		final_icon.blend_icon(accessory_icon_3, ICON_OVERLAY)
+	final_icon.scale(32, 32) // otherwise, the taur sprites dont load in the pref menu at all
 
 	return final_icon
 
@@ -112,26 +112,30 @@
 	feature_key = "taur"
 	feature_key_sprite = "taur"
 
-/datum/bodypart_overlay/mutant/taur_body/can_draw_on_bodypart(mob/living/carbon/human/human)
+/datum/bodypart_overlay/mutant/taur_body/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	. = ..()
 
 	if (!.)
 		return .
 
-	var/obj/item/organ/taur_body/body = human.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+	var/obj/item/organ/taur_body/body = bodypart_owner
 	if (istype(body))
 		if (body.hide_self)
 			return FALSE
 
-	var/obj/item/clothing/suit/worn_suit = human.wear_suit
-	if (istype(worn_suit))
-		if((worn_suit.flags_inv & HIDETAIL) && !worn_suit.gets_cropped_on_taurs)
+		var/mob/living/carbon/human/owner = bodypart_owner.owner
+		if(!istype(owner))
 			return TRUE
 
-		if (worn_suit.flags_inv & HIDETAURIFCOMPATIBLE)
-			for(var/shape in worn_suit.supported_bodyshapes)
-				if(body.external_bodyshapes & shape)
-					return FALSE
+		var/obj/item/clothing/suit/worn_suit = owner.wear_suit
+		if (istype(worn_suit))
+			if((worn_suit.flags_inv & HIDETAIL) && !worn_suit.gets_cropped_on_taurs)
+				return TRUE
+
+			if (worn_suit.flags_inv & HIDETAURIFCOMPATIBLE)
+				for(var/shape in worn_suit.supported_bodyshapes)
+					if(body.external_bodyshapes & shape)
+						return FALSE
 
 /datum/bodypart_overlay/mutant/taur_body/get_global_feature_list()
 	return SSaccessories.taur_list

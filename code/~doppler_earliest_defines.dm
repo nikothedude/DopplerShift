@@ -203,7 +203,6 @@
 	name = DOPPLER_SPRITE_ACCESSORY_NOTAUR
 	dimension_x = 32
 	center = FALSE
-	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
 	icon_state = "none"
 
 /// Linter sacrifice.  We only need this in the one file I suppose.
