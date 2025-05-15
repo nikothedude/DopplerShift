@@ -19557,10 +19557,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
-"bIU" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/closed/wall,
-/area/station/service/chapel/dock)
 "bIV" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/warning/vacuum/external,
@@ -67018,7 +67014,7 @@ aaa
 bGI
 bNs
 cfN
-cqW
+cfN
 cqW
 cfN
 cfN
@@ -69829,7 +69825,7 @@ aaa
 aaa
 bHL
 bHL
-bIU
+bHL
 bHM
 bHM
 bHM
