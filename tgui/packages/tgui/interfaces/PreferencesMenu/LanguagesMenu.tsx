@@ -23,6 +23,7 @@ export const KnownLanguage = (props) => {
           width="30px"
           minValue={0}
           maxValue={100}
+          step={0.5}
           value={props.language.partial_knowledge}
           onChange={(new_value) =>
             act('adjust_partial_language', {
