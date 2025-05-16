@@ -320,6 +320,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	var/list/save_languages = SANITIZE_LIST(save_data?["languages"])
 	for(var/language in save_languages)
 		var/value = save_languages[language]
+		if (isnum(value))
+			value = null // REMOVE LATER - removing invalid values, as its now a list
 		save_languages -= language
 
 		if(istext(language))
