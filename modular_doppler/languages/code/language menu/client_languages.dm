@@ -49,14 +49,12 @@
 	var/datum/language_holder/lang_holder = new species.species_language_holder()
 	for(var/language in preferences.get_adjusted_language_holder())
 		LAZYSET(preferences.languages[language], LANGUAGE_FLAGS, LANGUAGE_SPOKEN)
-		//preferences.languages[language] = LANGUAGE_SPOKEN
 
 	qdel(lang_holder)
 	qdel(species)
 
 	for(var/language in lang_holder.spoken_languages)
 		LAZYSET(preferences.languages[language], LANGUAGE_FLAGS, LANGUAGE_SPOKEN)
-		//preferences.languages[language] = LANGUAGE_SPOKEN
 
 	qdel(lang_holder)
 	qdel(species)
@@ -77,7 +75,6 @@
 		preferences.languages = list()
 		for(var/language in lang_holder.spoken_languages)
 			LAZYSET(preferences.languages[language], LANGUAGE_FLAGS, LANGUAGE_SPOKEN)
-			//preferences.languages[language] = LANGUAGE_SPOKEN
 
 	var/list/selected_languages = list()
 	var/list/unselected_languages = list()
@@ -104,7 +101,7 @@
 			unselected_languages += list(list(
 				"description" = language.desc,
 				"name" = language.name,
-				"icon" = sanitize_css_class_name(language.name),
+				"icon" = sanitize_css_class_name(language.name)
 			))
 
 	qdel(lang_holder)
@@ -142,8 +139,6 @@
 	preferences.languages[name_to_language[language_name]] = list()
 	preferences.languages[name_to_language[language_name]][LANGUAGE_FLAGS] = LANGUAGE_SPOKEN
 	preferences.languages[name_to_language[language_name]][LANGUAGE_KNOWLEDGE] = 100
-
-	//preferences.languages[name_to_language[language_name]][0] = LANGUAGE_SPOKEN
 	return TRUE
 
 /**
