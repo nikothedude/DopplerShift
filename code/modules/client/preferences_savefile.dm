@@ -321,7 +321,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	for(var/language in save_languages)
 		var/value = save_languages[language]
 		if (isnum(value))
-			value = list(100, value) // REMOVE LATER - removing invalid values, as its now a list
+			value = list(LANGUAGE_KNOWLEDGE = 100, LANGUAGE_FLAGS = value) // REMOVE LATER - removing invalid values, as its now a list
 		save_languages -= language
 
 		if(istext(language))
