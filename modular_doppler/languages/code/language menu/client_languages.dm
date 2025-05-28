@@ -158,8 +158,6 @@
 /datum/preference_middleware/languages/proc/adjust_partial_language(list/params)
 	var/language_name = params["language_name"]
 	var/partial_amount = clamp(params["partial_amount"], 0, 100)
-	if (partial_amount == 50 || isnull(partial_amount) || isnan(partial_amount)) // REVERT THIS STACK TRACE LATER - THE SANITY CHECK CAN STAY
-		stack_trace("possible incorrect understanding level from ui ([partial_amount]). debug info: [preferences.languages[name_to_language[language_name]]], [preferences.languages[name_to_language[language_name]]?[LANGUAGE_KNOWLEDGE]]")
 
 	if (isnull(partial_amount) || isnan(partial_amount))
 		partial_amount = 100
