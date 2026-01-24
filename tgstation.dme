@@ -7596,6 +7596,7 @@
 #include "modular_doppler\modular_vending\code\tg_vendors\sectech.dm"
 #include "modular_doppler\modular_vending\code\tg_vendors\wardrobes.dm"
 #include "modular_doppler\modular_weapons\code\gunsets.dm"
+#include "modular_doppler\modular_weapons\code\heavy_recoil.dm"
 #include "modular_doppler\modular_weapons\code\jousting.dm"
 #include "modular_doppler\modular_weapons\code\lets_go_gambling.dm"
 #include "modular_doppler\modular_weapons\code\melee.dm"
